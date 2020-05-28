@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <script type="text/babel">
+    /*class Produto{
+        constructor(descricao, preco){
+            this.descricao = descricao
+            this.preco = preco
+        }
+        verDescricao(){
+            console.log(`${this.descricao} por apenas ${this.preco}`)
+
+        }
+    }
+    let produto = new Produto('Notebbok', 2500)
+    produto.verDescricao()
+    let produtoLiteral = {
+        descricao: 'Geladeira',
+        preco:1800,
+        verDescricao: function(){
+            console.log(`${this.descricao} por apenas ${this.preco}`)
+
+        }
+    }
+    produtoLiteral.verDescricao()
+    let nome = 'Jorge' //document.getElementById('nome').value
+    let idade = 29
+    let sexo = 'Masculino'
+    let profissao = 'Programado'
+
+    let objeto = {
+        nome: nome,
+        idade: idade ,
+        sexo: sexo,
+        profissao: profissao ,
+        exibirResumo: function(){
+            console.log(`${this.nome}, ${this.idade} anos, ${this.sexo} é ${this.profissao}`)
+        } 
+    }
+    console.log(objeto)
+    objeto.exibirResumo()
+    
+    let objeto2 = {
+         nome,
+        idade ,
+         sexo,
+         profissao ,
+        exibirResumo: function(){
+            console.log(`${this.nome}, ${this.idade} anos, ${this.sexo} é ${this.profissao}`)
+        } 
+
+    console.log(objeto2)
+    objeto2.exibirResumo()
+    //objeto literal unico
+    let assinatura ={
+        idCliente: 1000,
+        descricao: 'Acesso a internet',
+        status(){
+            console.log('Ativo')
+        }
+    }
+    console.log(assinatura.descricao)
+    let y = assinatura
+    console.log(y.descricao)
+///
+y.descricao = 'Internet = tv = telefone'
+console.log(assinatura.descricao)
+console.log(y.descricao)
+
+//funções construturas- antigas
+    let Carro = function(){
+        this.cor = 'Amarelo'
+        this.modelo = 'Cevette'
+        this.velocidadeAtual = 0
+        this.velocidadeMaxima = 180
+
+        this.acelerar = function(){
+           let velovidade = this.getVelocidadeAtual() + 50
+           if (velocidade>this.velocidadeMaxima){
+               velocidade = this.velocidadeMaxima
+           }
+           this.setVelocidadeAtual(velovidade)
+        }
+        this.getVelocidadeAtual = function(){
+            return this.velocidadeAtual
+        }
+        this.setVelocidadeAtual = function(velocidadeAtual){
+            this.velocidadeAtual = velocidadeAtual
+        }
+    }
+    let carro = new Carro()
+    console.log(carro.velocidadeAtual)
+    carro.acelerar()
+    console.log(carro.velocidadeAtual)
+    carro.acelerar()
+    console.log(carro.velocidadeAtual)
+    carro.acelerar()
+    console.log(carro.velocidadeAtual)
+    carro.acelerar()
+    console.log(carro.velocidadeAtual)
+    carro.acelerar()
+    console.log(carro.velocidadeAtual)
+    carro.acelerar()
+    console.log(carro.velocidadeAtual)
+    carro.acelerar()
+    console.log(carro.velocidadeAtual)
+
+    //prototype
+    let a1 ={
+        cor:'Branco',
+        modelo: 'Airbus a380',
+        levantarVoo: function () {
+            console.log('Levantar voo')
+        }
+    }
+    let AviaoF = function(){
+        this.cor = 'Azul',
+        this.modelo = 'Boeing 787',
+        this.levantarVoo = function(){
+            console.log('Levantar voo')
+        }
+    }
+    let a2 = new AviaoF()
+
+    class AviaoC{
+        constructor(){
+            this.cor= 'Vermelho'
+            this.modelo ='Embraer E-Jets'
+        }
+        levantarVoo(){
+            console.log('Levantar voo!')
+        }
+    }
+    let a3 = new AviaoC()
+    console.log(a1)
+    console.log(a2)
+    console.log(a3)
+
+    //object.prototype
+    let animal = { attr1:'a' }
+    let vertebrado = {__proto__:animal, attr2:'b' }
+    let ave = {__proto__:vertebrado, attr3:'c' }
+    console.log(ave.attr2, ave.attr1)
+    //rest/spread
+    //contexto spread
+    let tituloArtigo = 'Como utilizar  o operador rest/spread'
+    console.log(tituloArtigo)
+    console.log(...tituloArtigo)
+    console.log([...tituloArtigo])
+    //arrays
+    let listaCursos1 = ['nodejs e MongoBD','Es6, Typescript e Angular 4']
+    let listaCursos2 = ['Multiplataforma Android/IOS', 'Introdução ao GNU/LINUX']
+    let listaCursosCompleto = ['Web Completo', 'Android completo',...listaCursos1, ...listaCursos2]
+console.log(listaCursosCompleto)
+//objetos
+    let pessoa = {nome:'joao', idade: 27}
+    let clone = {endereco:'rua abc', ...pessoa}
+    console.log(clone)
+
+ //contexto rest
+ function soma(...param){
+     let resultado = 0
+     console.log(param)
+     param.forEach(v => resultado += v)
+     return resultado
+ }
+console.log(soma(3,8,5,7))
+
+function multiplicacao(m, ...p){
+    console.log(m)
+    let resultado = 0
+    console.log(p)
+    p.forEach(v => resultado += m * v)
+
+    return resultado
+}
+console.log(multiplicacao(5, 7, 12, 3, 49))
+
+//destructuring
+    let frutas = ['Abacaxi','Uva', 'Pera','Mamão']
+    //let [ a, b, ,c] = frutas
+    let[a, b, c, d, e ='Banana'] = frutas
+    console.log(a, b,c,d,e)
+    let coisas = [['Abacaxi','Uva', 'Pera','Mamão'],['JOsé','Maria']]
+    let [ [, , f3], [,n2]] = coisas
+console.log(f3)
+//destructuring0.2
+    let produto= {
+        descricao:'Notebook',
+        preco:1800,
+        detalhes:{
+            fabricante:'abc',
+            modelo:'zyw'
+        }
+    }
+  //  let {descricao,preco} = produto
+    
+    let {descricao: d,preco:p} = produto
+
+    console.log(d, p)
+    let arr = [10,20,30,40]
+    function teste([ a, b]){
+        console.log(a,b)
+    }
+teste(arr)
+//objeto
+    let obj= {
+        a:10,
+        b:20,
+        c:30,
+        d:40
+    }
+    function teste({a,b}){
+        console.log(a,b)
+    }
+
+teste(obj)*/
+    //array
+    let arr=[10,20,30,40]
+    let [a ,...resto] = arr
+    console.log(a)
+    console.log(resto)
+
+
+
+
+
+    </script>
+    
+</head>
+<body>
+  <div id="output"></div>
+</body>
+</html>
